@@ -6,7 +6,7 @@
                 #:make-file)
   (:import-from #:40ants-project-templates/mixin/qlfile
                 #:qlfile-mixin)
-  (:import-from #:mystic.template.gitignore
+  (:import-from #:40ants-project-templates/mixin/gitignore
                 #:gitignore-mixin)
   (:import-from #:mystic.template.file
                 #:file-mixin)

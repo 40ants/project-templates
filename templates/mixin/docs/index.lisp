@@ -21,13 +21,20 @@
 
 
 (defmethod docs-config ((system (eql (asdf:find-system "{{ name }}-docs"))))
+  {{# doc-theme }}
   ;; 40ANTS-DOC-THEME-40ANTS system will bring
   ;; as dependency a full 40ANTS-DOC but we don't want
   ;; unnecessary dependencies here:
-  (ql:quickload "40ants-doc-theme-40ants")
+  #+quicklisp
+  (ql:quickload "{{ doc-theme-system }}")
+  #-quicklisp
+  (asdf:load-system "{{ doc-theme-system }}")
+  
   (list :theme
-        (find-symbol "40ANTS-THEME"
-                     (find-package "40ANTS-DOC-THEME-40ANTS"))))
+        (find-symbol "{{ doc-theme-symbol }}"
+                     (find-package "{{ doc-theme-package }}")))
+  {{/ doc-theme }}
+  )
 
 
 (defsection @index (:title "{{ name }}{{# description }} - {{ description }}{{/ description }}"

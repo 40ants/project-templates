@@ -1,5 +1,6 @@
 (uiop:define-package #:40ants-project-templates/mixin/qlfile
   (:use #:cl)
+  (:import-from #:40ants-project-templates/mixin/gitignore)
   (:import-from #:mystic.template.file
                 #:file-mixin
                 #:make-file
@@ -19,3 +20,8 @@
                    "mixin/qlfile/qlfile"
                    "qlfile")
         (slot-value self 'files)))
+
+
+(defmethod 40ants-project-templates/mixin/gitignore:patterns-to-ignore ((template qlfile-mixin))
+  (list* ".qlot/"
+         (call-next-method)))
