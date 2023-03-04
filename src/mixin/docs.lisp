@@ -1,6 +1,8 @@
 (uiop:define-package #:40ants-project-templates/mixin/docs
   (:use #:cl)
   (:import-from #:40ants-project-templates/mixin/gitignore)
+  (:import-from #:str)
+  (:import-from #:alexandria)
   (:import-from #:mystic
                 #:make-option)
   (:import-from #:mystic.template.file
