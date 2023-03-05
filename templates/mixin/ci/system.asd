@@ -3,6 +3,9 @@
   {{# license }}
   :license "{{ license }}"
   {{/ license }}
+  {{# homepage }}
+  :homepage "{{ homepage }}"
+  {{/ homepage }}
   :class :package-inferred-system
   :description "Provides CI settings for {{ name }}."
   {{# github }}
