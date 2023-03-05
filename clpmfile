@@ -1,0 +1,31 @@
+;;; -*- Mode: common-lisp; -*-
+(:api-version "0.4")
+
+(:source "quicklisp"
+ :url "https://beta.quicklisp.org/dist/quicklisp.txt"
+ :type :quicklisp)
+
+(:source "ultralisp"
+ :url "https://clpi.ultralisp.org/"
+ :type :clpi)
+
+;; Does not work because https://dist.ultralisp.org/ultralisp-versions.txt is missing
+;; (:source "ultralisp"
+;;  :url "https://dist.ultralisp.org/ultralisp.txt"
+;;  :type :quicklisp)
+
+(:asd "40ants-project-templates.asd")
+
+;; While my PR is not merged:
+;; https://github.com/roswell/mystic/pull/4
+(:github "mystic"
+ :path "svetlyak40wt/mystic"
+ :branch "lispy-interface-for-opts")
+
+
+;; To not fail when rendering templates with my settings:
+(:system "40ants-doc-theme-40ants")
+(:system "40ants-ci")
+
+(:system "ironclad")
+

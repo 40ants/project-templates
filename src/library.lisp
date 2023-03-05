@@ -17,11 +17,14 @@
   (:import-from #:40ants-project-templates/mixin/ci
                 #:ci-mixin)
   (:import-from #:cl-ppcre
-                #:register-groups-bind))
+                #:register-groups-bind)
+  (:import-from #:40ants-project-templates/mixin/clpm
+                #:clpm-mixin))
 (in-package #:40ants-project-templates/library)
 
 
 (defclass library-template (qlfile-mixin
+                            clpm-mixin
                             docs-mixin
                             ci-mixin
                             rove-tests-mixin
