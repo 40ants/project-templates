@@ -34,5 +34,8 @@
          (system-name (getf options :name))
          (ci-system-name (format nil "~A-ci" system-name)))
     ;; To create .github/workflows/*.yaml files we need to load the system
+    #+quicklisp
     (ql:quickload ci-system-name)
+    #-quicklisp
+    (asdf:load-system ci-system-name)
     (values-list results)))

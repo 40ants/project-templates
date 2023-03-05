@@ -2,6 +2,7 @@
   (:use #:cl)
   (:import-from #:pythonic-string-reader
                 #:pythonic-string-syntax)
+  #+quicklisp
   (:import-from #:quicklisp)
   (:import-from #:named-readtables
                 #:in-readtable)
