@@ -19,7 +19,10 @@
   (:import-from #:cl-ppcre
                 #:register-groups-bind)
   (:import-from #:40ants-project-templates/mixin/clpm
-                #:clpm-mixin))
+                #:clpm-mixin)
+  (:export #:make-system-file
+           #:make-core-file
+           #:library-template))
 (in-package #:40ants-project-templates/library)
 
 
@@ -58,16 +61,34 @@
                       :default "BSD")
          (make-option :description
                       "Description"
-                      "A short, one-line description of the project."))
-   :files (list
-           (make-file :40ants-project-templates
-                      "library/system.asd"
-                      "{{ name }}.asd")
-           (make-file :40ants-project-templates
-                      "library/core.lisp"
-                      "src/core.lisp")))
+                      "A short, one-line description of the project.")))
   (:documentation "Mystic template to create a Common Lisp library with documentation, tests and continuous integration."))
 
+
+(defgeneric make-system-file (template)
+  (:documentation "Should return a file object, which creates {{ name }}.asd file.")
+  (:method ((template library-template))
+    (make-file :40ants-project-templates
+               "library/system.asd"
+               "{{ name }}.asd")))
+
+
+(defgeneric make-core-file (template)
+  (:documentation "Should return a file object, which creates main lisp file.")
+  (:method ((template library-template))
+    (make-file :40ants-project-templates
+               "library/core.lisp"
+               "src/core.lisp")))
+
+
+(defmethod initialize-instance :around ((template library-template) &rest args)
+  (let ((new-args
+          (if (getf args :files)
+              args
+              (list* :files (list (make-system-file template)
+                                  (make-core-file template))
+                     args))))
+    (apply #'call-next-method template new-args)))
 
 
 (defmethod mystic:validate-options :around ((template library-template) (options list) &key request-all-options-p)
