@@ -92,6 +92,8 @@
 
 
 (defmethod mystic:validate-options :around ((template library-template) (options list) &key request-all-options-p)
+  (declare (ignore request-all-options-p))
+  
   (let* ((result (call-next-method))
          (github-url (getf result :github)))
     (append (when github-url

@@ -14,6 +14,8 @@
 
 
 (defmethod initialize-instance :after ((self rove-tests-mixin) &rest args)
+  (declare (ignore args))
+  
   (setf (slot-value self 'files)
         (list*
          (make-file :40ants-project-templates

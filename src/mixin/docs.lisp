@@ -19,6 +19,8 @@
 
 
 (defmethod initialize-instance :after ((self docs-mixin) &rest args)
+  (declare (ignore args))
+  
   (setf (slot-value self 'mystic::options)
         (list*
          (make-option :doc-theme
