@@ -13,5 +13,6 @@
   :in-order-to ((test-op (test-op "40ants-project-templates-tests"))))
 
 
+(asdf:register-system-packages "mystic" '("MYSTIC.UTIL"))
 (asdf:register-system-packages "mystic-file-mixin" '("MYSTIC.TEMPLATE.FILE"))
 (asdf:register-system-packages "mystic-gitignore-mixin" '("MYSTIC.TEMPLATE.GITIGNORE"))
