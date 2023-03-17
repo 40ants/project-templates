@@ -34,6 +34,7 @@
   :on-pull-request t
   :cache t
   :jobs ((run-tests
+          :asdf-system "{{ name }}"
           :lisp ("sbcl-bin"
                  ;; Issue https://github.com/roswell/roswell/issues/534
                  ;; is still reproduces on 2023-02-06:
