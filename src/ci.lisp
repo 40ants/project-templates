@@ -34,6 +34,7 @@
   :on-pull-request t
   :cache t
   :jobs ((run-tests
+          :asdf-system "40ants-project-templates"
           :lisp ("sbcl-bin"
                  ;; Issue https://github.com/roswell/roswell/issues/534
                  ;; is still reproduces on 2023-02-06:
