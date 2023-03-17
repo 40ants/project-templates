@@ -75,7 +75,8 @@
          (tests-system-name (format nil "~A-tests" lib-name)))
     (with-temp-path (lib-name tmp-path)
       (mystic:render (make-instance '40ants-project-templates/core:library-template)
-                     (list :name lib-name)
+                     (list :name lib-name
+                           :author "Alexander Artemenko")
                      tmp-path)
       (ok (probe-file
            (merge-pathnames (format nil "~A.asd" lib-name)
