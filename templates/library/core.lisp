@@ -8,7 +8,7 @@
 
 
 (defclass hello ()
-  ((name :initform :name
+  ((name :initarg :name
          :reader user-name))
   (:documentation "Example class."))
 
