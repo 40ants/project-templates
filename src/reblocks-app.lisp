@@ -1,6 +1,6 @@
 (uiop:define-package #:40ants-project-templates/reblocks-app
   (:use #:cl)
-  (:import-from #:40ants-project-templates/core
+  (:import-from #:40ants-project-templates/library
                 #:library-template)
   (:import-from #:40ants-project-templates/utils
                 #:make-mystic-tree)
