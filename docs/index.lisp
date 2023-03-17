@@ -76,5 +76,22 @@ You can install this library from Quicklisp, but you want to receive updates qui
                                    "ASDF"
                                    "40A"))
   "
-TODO: Write a library description. Put some examples here.
+```
+CL-USER> (ql:quickload :40ants-project-templates)
+
+CL-USER> (mystic:list-templates)
+(#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
+ #<40ANTS-PROJECT-TEMPLATES/LIBRARY:LIBRARY-TEMPLATE {7010EACC23}>)
+
+CL-USER> (first *)
+#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
+
+CL-USER> (mystic:render *
+                        (list :name \"my-web-app\"
+                              :author \"John Doe\")
+                        #P\"/tmp/my-web-app/\")
+
+```
+
+Optionally, you can give :REQUEST-ALL-OPTIONS-P T argument to force Mystic to ask about all template option including optional.
 ")
