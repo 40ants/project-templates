@@ -27,7 +27,8 @@
          (docs-system-name (format nil "~A-docs" lib-name)))
     (with-temp-path (lib-name tmp-path)
       (mystic:render (make-instance '40ants-project-templates/core:library-template)
-                     (list :name lib-name)
+                     (list :name lib-name
+                           :author "Alexander Artemenko")
                      tmp-path)
       ;; Now we need to create .git/HEAD to suppress a warning from 40ants-doc about it's inability
       ;; to get a GIT-VERSION
