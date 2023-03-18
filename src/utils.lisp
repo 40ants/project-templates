@@ -85,7 +85,7 @@ Looks like this:
 
    Wrap this function call with EVAL-WHEN if calling it as a toplevel form."
   
-  (when (and (find-class class-name)
+  (when (and (find-class class-name nil)
              (or (null (documentation class-name 'type))
                  (not (str:containsp title (documentation class-name 'type)))))
     (setf (documentation class-name 'type)

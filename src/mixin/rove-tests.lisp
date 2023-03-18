@@ -24,4 +24,5 @@
          (make-file :40ants-project-templates
                     "mixin/rove-tests/core.lisp"
                     "t/core.lisp")
-         (slot-value self 'files))))
+         (when (slot-boundp self 'files)
+           (slot-value self 'files)))))
