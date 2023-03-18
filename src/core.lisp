@@ -4,7 +4,8 @@
                 #:library-template)
   (:import-from #:40ants-project-templates/reblocks-app
                 #:reblocks-app-template)
-  (:export #:library-template))
+  (:export #:library-template
+           #:reblocks-app-template))
 (in-package #:40ants-project-templates/core)
 
 

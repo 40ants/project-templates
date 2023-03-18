@@ -93,5 +93,5 @@
 
 
 (defmethod 40ants-project-templates/mixin/gitignore:patterns-to-ignore ((template docs-mixin))
-  (list* "docs/build/"
+  (list* "/docs/build/"
          (call-next-method)))

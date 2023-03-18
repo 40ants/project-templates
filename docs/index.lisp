@@ -13,6 +13,14 @@
                 #:@changelog)
   (:import-from #:docs-config
                 #:docs-config)
+  (:import-from #:40ants-project-templates/core
+                #:reblocks-app-template
+                #:library-template)
+  (:import-from #:40ants-project-templates/mixin/ci
+                #:ci-mixin)
+  (:import-from #:40ants-project-templates/library
+                #:make-system-file
+                #:make-core-file)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -53,7 +61,9 @@
 ![Quicklisp](http://quickdocs.org/badge/40ants-project-templates.svg)
 "
   (@installation section)
-  (@usage section))
+  (@usage section)
+  (@templates section)
+  (@mixins section))
 
 
 (defsection-copy @readme @index)
@@ -94,4 +104,32 @@ CL-USER> (mystic:render *
 ```
 
 Optionally, you can give :REQUEST-ALL-OPTIONS-P T argument to force Mystic to ask about all template option including optional.
+
+This library provides following template classes:
+
+- LIBRARY-TEMPLATE
+- REBLOCKS-APP-TEMPLATE
 ")
+
+
+(defsection @templates (:title "Templates")
+  (@library section)
+  (@reblocks-app section))
+
+
+(defsection @library (:title "CL Library")
+  (library-template class)
+  (make-core-file generic-function)
+  (make-system-file generic-function))
+
+
+(defsection @reblocks-app (:title "Reblocks Web App")
+  (reblocks-app-template class))
+
+
+(defsection @mixins (:title "Mixins")
+  (@ci section))
+
+
+(defsection @mixins (:title "CI")
+  (ci-mixin class))

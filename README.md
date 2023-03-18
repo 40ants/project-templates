@@ -39,12 +39,84 @@ You can install this library from Quicklisp, but you want to receive updates qui
 
 ## Usage
 
-`TODO`: Write a library description. Put some examples here.
+```
+CL-USER> (ql:quickload :40ants-project-templates)
+
+CL-USER> (mystic:list-templates)
+(#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
+ #<40ANTS-PROJECT-TEMPLATES/LIBRARY:LIBRARY-TEMPLATE {7010EACC23}>)
+
+CL-USER> (first *)
+#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
+
+CL-USER> (mystic:render *
+                        (list :name "my-web-app"
+                              :author "John Doe")
+                        #P"/tmp/my-web-app/")
+```
+Optionally, you can give `:REQUEST-ALL-OPTIONS-P` T argument to force Mystic to ask about all template option including optional.
+
+This library provides following template classes:
+
+* [`library-template`][a2ba]
+
+* [`reblocks-app-template`][9624]
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FINDEX-3A-3A-40TEMPLATES-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## Templates
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FINDEX-3A-3A-40LIBRARY-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+### CL Library
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3ALIBRARY-TEMPLATE-20CLASS-29"></a>
+
+#### [class](1439) `40ants-project-templates/library:library-template` (qlfile-mixin clpm-mixin docs-mixin ci-mixin rove-tests-mixin gitignore-mixin file-mixin)
+
+Mystic template to create a Common Lisp library with documentation, tests and continuous integration.
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3AMAKE-CORE-FILE-20GENERIC-FUNCTION-29"></a>
+
+#### [generic-function](c77e) `40ants-project-templates/library:make-core-file` template
+
+Should return a file object, which creates main lisp file.
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3AMAKE-SYSTEM-FILE-20GENERIC-FUNCTION-29"></a>
+
+#### [generic-function](6cea) `40ants-project-templates/library:make-system-file` template
+
+Should return a file object, which creates {{ name }}.asd file.
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FINDEX-3A-3A-40REBLOCKS-APP-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+### Reblocks Web App
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-2FREBLOCKS-APP-3AREBLOCKS-APP-TEMPLATE-20CLASS-29"></a>
+
+#### [class](06f7) `40ants-project-templates/reblocks-app:reblocks-app-template` (library-template)
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FINDEX-3A-3A-40MIXINS-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## CI
+
+<a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FCI-3ACI-MIXIN-20CLASS-29"></a>
+
+### [class](bf22) `40ants-project-templates/mixin/ci:ci-mixin` (file-mixin)
+
+Adds docs based on 40ants-docs.
 
 
 [863f]: https://40ants.com/project-templates/
+[a2ba]: https://40ants.com/project-templates/#x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3ALIBRARY-TEMPLATE-20CLASS-29
+[9624]: https://40ants.com/project-templates/#x-2840ANTS-PROJECT-TEMPLATES-2FREBLOCKS-APP-3AREBLOCKS-APP-TEMPLATE-20CLASS-29
 [41d7]: https://github.com/40ants/project-templates
 [ca1d]: https://github.com/40ants/project-templates/actions
+[1439]: https://github.com/40ants/project-templates/blob/c0d607feaf3e19e0cf3dfaa2563904c639ab1ac8/src/library.lisp#L29
+[6cea]: https://github.com/40ants/project-templates/blob/c0d607feaf3e19e0cf3dfaa2563904c639ab1ac8/src/library.lisp#L68
+[c77e]: https://github.com/40ants/project-templates/blob/c0d607feaf3e19e0cf3dfaa2563904c639ab1ac8/src/library.lisp#L76
+[bf22]: https://github.com/40ants/project-templates/blob/c0d607feaf3e19e0cf3dfaa2563904c639ab1ac8/src/mixin/ci.lisp#L11
+[06f7]: https://github.com/40ants/project-templates/blob/c0d607feaf3e19e0cf3dfaa2563904c639ab1ac8/src/reblocks-app.lisp#L14
 [8fc2]: https://github.com/40ants/project-templates/issues
 
 * * *
