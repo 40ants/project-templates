@@ -4,6 +4,8 @@
                 #:make-file)
   (:import-from #:mystic.template.file
                 #:file)
+  (:import-from #:str
+                #:split)
   (:export
    #:ensure-template-docstring-has-options-description))
 (in-package #:40ants-project-templates/utils)
@@ -78,21 +80,33 @@ Looks like this:
   (terpri stream))
 
 
+(defun dedent-all-lines (text stream)
+  (loop for line in (split #\Newline text)
+        do (write-string
+            (str:trim-left line)
+            stream)
+           (terpri stream)))
+
+
 (defun ensure-template-docstring-has-options-description (class-name &key (title "## Options"))
   "Appends options description to the documentation string of a given template class.
 
    Options are sorted by their keyword argument name but \"required\" go before optional.
 
-   Wrap this function call with EVAL-WHEN if calling it as a toplevel form."
+   Wrap this function call with EVAL-WHEN if calling it as a toplevel form.
+
+   Warning, this function trims all leading whitespaces from lines of original
+   template class docstrings."
   
   (when (and (find-class class-name nil)
              (or (null (documentation class-name 'type))
                  (not (str:containsp title (documentation class-name 'type)))))
     (setf (documentation class-name 'type)
           (with-output-to-string (output)
-            (when (documentation 'library-template 'type)
-              (write-string (documentation 'library-template 'type)
-                            output)
+            (when (documentation class-name 'type)
+              (dedent-all-lines
+               (documentation class-name 'type)
+               output)
               (terpri output)
               (terpri output))
             
