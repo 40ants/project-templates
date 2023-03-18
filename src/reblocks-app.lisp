@@ -16,7 +16,7 @@
   ()
   (:documentation "This template creates a Reblocks web application with a few simple widgets.
 
-                   Other behaviour is inherited from LIBRARY-TEMPLATE"))
+                   Other behaviour is inherited from LIBRARY-TEMPLATE."))
 
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
