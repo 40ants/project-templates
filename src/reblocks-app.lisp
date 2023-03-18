@@ -20,7 +20,7 @@
 
 
 (eval-when (:compile-toplevel :load-toplevel :execute)
-  (ensure-template-docstring-has-options-description 'library-template))
+  (ensure-template-docstring-has-options-description 'reblocks-app-template))
 
 
 (defmethod initialize-instance :around ((template reblocks-app-template) &rest args)

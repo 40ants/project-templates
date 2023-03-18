@@ -69,7 +69,7 @@ Looks like this:
 
 
 (defun print-option-as-markdown (option stream)
-  (format stream "* ~S - ~A.~:[~; Required.~]~@[ Default: ~S.~] ~A"
+  (format stream "* ~S - ~A.~:[~; **Required**.~]~@[ Default: ~S.~] ~A"
           (mystic:option-name option)
           (mystic:option-title option)
           (mystic:option-required-p option)
