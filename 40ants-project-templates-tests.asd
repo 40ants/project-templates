@@ -8,5 +8,6 @@
   :bug-tracker "https://github.com/40ants/project-templates/issues"
   :pathname "t"
   :depends-on ("40ants-project-templates-tests/core")
-  :perform (test-op :after (op c)
-                    (symbol-call :rove :run c))  )
+  :perform (test-op (op c)
+                    (unless (symbol-call :rove :run c)
+                      (error "Tests failed"))))
