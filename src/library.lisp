@@ -19,6 +19,8 @@
                 #:register-groups-bind)
   (:import-from #:40ants-project-templates/mixin/clpm
                 #:clpm-mixin)
+  (:import-from #:40ants-project-templates/utils
+                #:ensure-template-docstring-has-options-description)
   (:export #:make-system-file
            #:make-core-file
            #:library-template))
@@ -73,6 +75,9 @@
 - GITIGNORE-MIXIN
 
 "))
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (ensure-template-docstring-has-options-description 'library-template))
 
 
 (defgeneric make-system-file (template)

@@ -3,7 +3,9 @@
   (:import-from #:mystic.template.file
                 #:make-file)
   (:import-from #:mystic.template.file
-                #:file))
+                #:file)
+  (:export
+   #:ensure-template-docstring-has-options-description))
 (in-package #:40ants-project-templates/utils)
 
 
@@ -64,3 +66,54 @@ Looks like this:
   (print-unreadable-object (obj stream :type t)
     (format stream "~A"
             (mystic.template.file:file-path obj))))
+
+
+(defun print-option-as-markdown (option stream)
+  (format stream "* ~S - ~A.~:[~; Required.~]~@[ Default: ~S.~] ~A"
+          (mystic:option-name option)
+          (mystic:option-title option)
+          (mystic:option-required-p option)
+          (mystic:option-default option)
+          (mystic:option-docstring option))
+  (terpri stream))
+
+
+(defun ensure-template-docstring-has-options-description (class-name &key (title "## Options"))
+  "Appends options description to the documentation string of a given template class.
+
+   Options are sorted by their keyword argument name but \"required\" go before optional.
+
+   Wrap this function call with EVAL-WHEN if calling it as a toplevel form."
+  
+  (when (or (null (documentation class-name 'type))
+            (not (str:containsp title (documentation class-name 'type))))
+    (setf (documentation class-name 'type)
+          (with-output-to-string (output)
+            (when (documentation 'library-template 'type)
+              (write-string (documentation 'library-template 'type)
+                            output)
+              (terpri output)
+              (terpri output))
+            
+            (write-string title output)
+            (terpri output)
+            (terpri output)
+              
+            (loop with obj = (make-instance class-name)
+                  with options = (sort (copy-list (mystic:template-options obj))
+                                       (lambda (left right)
+                                         (or (< (car left)
+                                                (car right))
+                                             (and
+                                              (= (car left)
+                                                 (car right))
+                                              
+                                              (string< (cdr left)
+                                                       (cdr right)))))
+                                       :key (lambda (option)
+                                              (cons (if (mystic:option-required-p option)
+                                                        1
+                                                        2)
+                                                    (mystic:option-name option))))
+                  for option in options
+                  do (print-option-as-markdown option output))))))

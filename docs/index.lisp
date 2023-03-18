@@ -37,6 +37,8 @@
   (:import-from #:mystic.template.file
                 #:file
                 #:make-file)
+  (:import-from #:40ants-project-templates/utils
+                #:ensure-template-docstring-has-options-description)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -65,6 +67,10 @@
                                    "CL"
                                    "API"
                                    "CLI"
+                                   "BSD"
+                                   "MIT"
+                                   "GPL"
+                                   "URL"
                                    "TODO"
                                    "Unlicense"
                                    "REPL"
@@ -182,4 +188,5 @@ This library provides following template classes:
   (file class)
   (mystic.template.file:file-content (reader file))
   (mystic.template.file:file-path (reader file))
-  (make-file function))
+  (make-file function)
+  (ensure-template-docstring-has-options-description function))
