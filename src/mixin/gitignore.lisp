@@ -18,7 +18,8 @@
 (defvar *patterns*
   (list "*~"
         ".#*"
-        ".*.~undo-tree~"))
+        ".*.~undo-tree~")
+  "Default list of patterns which returned by PATTERNS-TO-IGNORE generic function.")
 
 
 (defgeneric patterns-to-ignore (template)

@@ -2,14 +2,13 @@
   (:use #:cl)
   (:import-from #:mystic
                 #:make-option)
-  (:import-from #:mystic.template.file
-                #:make-file)
   (:import-from #:40ants-project-templates/mixin/qlfile
                 #:qlfile-mixin)
   (:import-from #:40ants-project-templates/mixin/gitignore
                 #:gitignore-mixin)
   (:import-from #:mystic.template.file
-                #:file-mixin)
+                #:file-mixin
+                #:make-file)
   (:import-from #:40ants-project-templates/mixin/docs
                 #:docs-mixin)
   (:import-from #:40ants-project-templates/mixin/rove-tests
@@ -62,11 +61,22 @@
          (make-option :description
                       "Description"
                       "A short, one-line description of the project.")))
-  (:documentation "Mystic template to create a Common Lisp library with documentation, tests and continuous integration."))
+  (:documentation "Mystic template to create a Common Lisp library with documentation, tests and continuous integration.
+
+## Included mixins
+
+- QLFILE-MIXIN
+- CLPM-MIXIN
+- DOCS-MIXIN
+- CI-MIXIN
+- ROVE-TESTS-MIXIN
+- GITIGNORE-MIXIN
+
+"))
 
 
 (defgeneric make-system-file (template)
-  (:documentation "Should return a file object, which creates {{ name }}.asd file.")
+  (:documentation "Should return a file object, which creates `{{ name }}.asd` file.")
   (:method ((template library-template))
     (make-file :40ants-project-templates
                "library/system.asd"
@@ -74,7 +84,9 @@
 
 
 (defgeneric make-core-file (template)
-  (:documentation "Should return a file object, which creates main lisp file.")
+  (:documentation "Should return a file object, which creates main lisp file.
+
+                   Use MAKE-FILE function to create a MYSTIC.TEMPLATE.FILE:FILE object.")
   (:method ((template library-template))
     (make-file :40ants-project-templates
                "library/core.lisp"

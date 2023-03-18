@@ -21,6 +21,22 @@
   (:import-from #:40ants-project-templates/library
                 #:make-system-file
                 #:make-core-file)
+  (:import-from #:40ants-project-templates/mixin/clpm
+                #:clpm-mixin)
+  (:import-from #:40ants-project-templates/mixin/docs
+                #:docs-mixin)
+  (:import-from #:40ants-project-templates/mixin/gitignore
+                #:patterns-to-ignore
+                #:*patterns*
+                #:gitignore-mixin)
+  (:import-from #:40ants-project-templates/mixin/qlfile
+                #:qlfile-pieces
+                #:qlfile-mixin)
+  (:import-from #:40ants-project-templates/mixin/rove-tests
+                #:rove-tests-mixin)
+  (:import-from #:mystic.template.file
+                #:file
+                #:make-file)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -40,8 +56,7 @@
   
   (list :theme
         (find-symbol "40ANTS-THEME"
-                     (find-package "40ANTS-DOC-THEME-40ANTS")))
-  )
+                     (find-package "40ANTS-DOC-THEME-40ANTS"))))
 
 
 (defsection @index (:title "40ants-project-templates"
@@ -63,7 +78,8 @@
   (@installation section)
   (@usage section)
   (@templates section)
-  (@mixins section))
+  (@mixins section)
+  (@utils section))
 
 
 (defsection-copy @readme @index)
@@ -87,8 +103,6 @@ You can install this library from Quicklisp, but you want to receive updates qui
                                    "40A"))
   "
 ```
-CL-USER> (ql:quickload :40ants-project-templates)
-
 CL-USER> (mystic:list-templates)
 (#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
  #<40ANTS-PROJECT-TEMPLATES/LIBRARY:LIBRARY-TEMPLATE {7010EACC23}>)
@@ -128,8 +142,44 @@ This library provides following template classes:
 
 
 (defsection @mixins (:title "Mixins")
-  (@ci section))
+  (@ci section)
+  (@clpm section)
+  (@docs section)
+  (@gitignore section)
+  (@qlfile section)
+  (@rove-tests section))
 
 
-(defsection @mixins (:title "CI")
+(defsection @ci (:title "CI")
   (ci-mixin class))
+
+
+(defsection @clpm (:title "CLPM")
+  (clpm-mixin class))
+
+
+(defsection @docs (:title "Docs")
+  (docs-mixin class))
+
+
+(defsection @gitignore (:title "Gitignore")
+  (gitignore-mixin class)
+  (*patterns* variable)
+  (patterns-to-ignore generic-function))
+
+
+(defsection @qlfile (:title "Qlfile")
+  (qlfile-mixin class)
+  (qlfile-pieces generic-function))
+
+
+(defsection @rove-tests (:title "Rove Tests")
+  (rove-tests-mixin class))
+
+
+(defsection @utils (:title "Utilities")
+  (mystic.template.file:file-mixin class)
+  (file class)
+  (mystic.template.file:file-content (reader file))
+  (mystic.template.file:file-path (reader file))
+  (make-file function))
