@@ -13,4 +13,5 @@
   :bug-tracker "{{ github }}/issues"
   {{/ github }}
   :pathname "src"
-  :depends-on ("{{ name }}-ci/ci"))
+  :depends-on ("40ants-ci"
+               "{{ name }}-ci/ci"))
