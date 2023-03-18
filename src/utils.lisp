@@ -85,8 +85,9 @@ Looks like this:
 
    Wrap this function call with EVAL-WHEN if calling it as a toplevel form."
   
-  (when (or (null (documentation class-name 'type))
-            (not (str:containsp title (documentation class-name 'type))))
+  (when (and (find-class class-name)
+             (or (null (documentation class-name 'type))
+                 (not (str:containsp title (documentation class-name 'type)))))
     (setf (documentation class-name 'type)
           (with-output-to-string (output)
             (when (documentation 'library-template 'type)
