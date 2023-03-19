@@ -43,7 +43,7 @@
                             tmp-path)))
       (let* ((asdf:*central-registry* (cons tmp-path
                                             asdf:*central-registry*))
-             (resulting-path (progn (asdf:load-system docs-system-name :force t)
+             (resulting-path (progn (asdf:load-system docs-system-name)
                                     (docs-builder:build docs-system-name)))
              (index.html (merge-pathnames
                           (make-pathname :name "index"
@@ -84,6 +84,6 @@
       (let* ((asdf:*central-registry* (cons tmp-path
                                             asdf:*central-registry*))
              (rove:*default-reporter* :none))
-        (asdf:load-system tests-system-name :force t)
+        (asdf:load-system tests-system-name)
         
         (asdf:test-system lib-name)))))
