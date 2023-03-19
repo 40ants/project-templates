@@ -65,6 +65,8 @@
                       "A short, one-line description of the project.")))
   (:documentation "Mystic template to create a Common Lisp library with documentation, tests and continuous integration.
 
+Use 40ANTS-PROJECT-TEMPLATES:CREATE-LIBRARY function to generate a skeleton for a new CL library.
+
 ## Included mixins
 
 - QLFILE-MIXIN

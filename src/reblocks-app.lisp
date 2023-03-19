@@ -16,7 +16,10 @@
   ()
   (:documentation "This template creates a Reblocks web application with a few simple widgets.
 
-                   Other behaviour is inherited from LIBRARY-TEMPLATE."))
+                   Other behaviour is inherited from LIBRARY-TEMPLATE.
+
+                   Use 40ANTS-PROJECT-TEMPLATES:CREATE-REBLOCKS-APP function to generate a skeleton
+                   for a new web service."))
 
 
 (eval-when (:compile-toplevel :load-toplevel :execute)

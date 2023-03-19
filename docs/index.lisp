@@ -14,6 +14,8 @@
   (:import-from #:docs-config
                 #:docs-config)
   (:import-from #:40ants-project-templates/core
+                #:create-reblocks-app
+                #:create-library
                 #:reblocks-app-template
                 #:library-template)
   (:import-from #:40ants-project-templates/mixin/ci
@@ -108,6 +110,24 @@ You can install this library from Quicklisp, but you want to receive updates qui
                                    "ASDF"
                                    "40A"))
   "
+This library provides following template classes:
+
+- LIBRARY-TEMPLATE
+- REBLOCKS-APP-TEMPLATE
+
+To create new projects out of these templates, use functions CREATE-LIBRARY and CREATE-REBLOCKS-APP:
+
+```
+CL-USER> (40ants-project-templates:create-reblocks-app
+          #P\"/tmp/my-web-app/\"
+          \"my-web-app\"
+          \"My experimental web application\")
+```
+
+Optionally, you can give :REQUEST-ALL-OPTIONS-P T argument to force Mystic to ask about all template option including optional.
+
+Also, you can use more generic MYSTIC:RENDER function and pass arguments as a list:
+
 ```
 CL-USER> (mystic:list-templates)
 (#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
@@ -122,13 +142,6 @@ CL-USER> (mystic:render *
                         #P\"/tmp/my-web-app/\")
 
 ```
-
-Optionally, you can give :REQUEST-ALL-OPTIONS-P T argument to force Mystic to ask about all template option including optional.
-
-This library provides following template classes:
-
-- LIBRARY-TEMPLATE
-- REBLOCKS-APP-TEMPLATE
 ")
 
 
@@ -139,12 +152,14 @@ This library provides following template classes:
 
 (defsection @library (:title "CL Library")
   (library-template class)
+  (create-library function)
   (make-core-file generic-function)
   (make-system-file generic-function))
 
 
 (defsection @reblocks-app (:title "Reblocks Web App")
-  (reblocks-app-template class))
+  (reblocks-app-template class)
+  (create-reblocks-app function))
 
 
 (defsection @mixins (:title "Mixins")

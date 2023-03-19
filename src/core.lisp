@@ -1,15 +1,50 @@
-(uiop:define-package #:40ants-project-templates/core
+(uiop:define-package #:40ants-project-templates
   (:use #:cl)
+  (:nicknames #:40ants-project-templates/core)
   (:import-from #:40ants-project-templates/library
                 #:library-template)
   (:import-from #:40ants-project-templates/reblocks-app
                 #:reblocks-app-template)
   (:export #:library-template
-           #:reblocks-app-template))
-(in-package #:40ants-project-templates/core)
+           #:reblocks-app-template
+           #:create-library
+           #:create-reblocks-app))
+(in-package #:40ants-project-templates)
 
 
-;; (progn
-;;   (setf mystic::*templates* nil))
-(mystic:register-template (make-instance 'library-template))
-(mystic:register-template (make-instance 'reblocks-app-template))
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (mystic:register-template (make-instance 'library-template))
+  (mystic:register-template (make-instance 'reblocks-app-template)))
+
+
+(defun create-library (directory-path name description &key request-all-options)
+  "Creates Common Lisp library in the specified directory.
+
+   Pass :REQUEST-ALL-OPTIONS T to fill all optional options or use more generic
+   call to MYSTIC:RENDER function to pass any options you like as a list.
+   "
+  (check-type directory-path pathname)
+  (check-type name string)
+  (check-type description string)
+  (mystic:render  (make-instance 'library-template)
+                  (list :name name
+                        :description description)
+                  directory-path
+                  :request-all-options-p request-all-options))
+
+
+(defun create-reblocks-app (directory-path name description &key request-all-options)
+  "Creates Common Lisp web application in the specified directory.
+
+   Pass :REQUEST-ALL-OPTIONS T to fill all optional options or use more generic
+   call to MYSTIC:RENDER function to pass any options you like as a list.
+   "
+  (check-type directory-path pathname)
+  (check-type name string)
+  (check-type description string)
+  (mystic:render  (make-instance 'reblocks-app-template)
+                  (list :name name
+                        :description description)
+                  directory-path
+                  :request-all-options-p request-all-options))
+
