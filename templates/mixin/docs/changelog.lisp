@@ -1,8 +1,8 @@
-(uiop:define-package #:{{ name }}-docs/changelog
+(uiop:define-package #:{{name}}-docs/changelog
   (:use #:cl)
   (:import-from #:40ants-doc/changelog
                 #:defchangelog))
-(in-package #:{{ name }}-docs/changelog)
+(in-package #:{{name}}-docs/changelog)
 
 
 (defchangelog (:ignore-words ("SLY"

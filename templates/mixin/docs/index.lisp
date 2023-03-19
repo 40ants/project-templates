@@ -1,4 +1,4 @@
-(uiop:define-package #:{{ name }}-docs/index
+(uiop:define-package #:{{name}}-docs/index
   (:use #:cl)
   (:import-from #:pythonic-string-reader
                 #:pythonic-string-syntax)
@@ -9,19 +9,19 @@
   (:import-from #:40ants-doc
                 #:defsection
                 #:defsection-copy)
-  (:import-from #:{{ name }}-docs/changelog
+  (:import-from #:{{name}}-docs/changelog
                 #:@changelog)
   (:import-from #:docs-config
                 #:docs-config)
   (:export #:@index
            #:@readme
            #:@changelog))
-(in-package #:{{ name }}-docs/index)
+(in-package #:{{name}}-docs/index)
 
 (in-readtable pythonic-string-syntax)
 
 
-(defmethod docs-config ((system (eql (asdf:find-system "{{ name }}-docs"))))
+(defmethod docs-config ((system (eql (asdf:find-system "{{name}}-docs"))))
   {{# doc-theme }}
   ;; 40ANTS-DOC-THEME-40ANTS system will bring
   ;; as dependency a full 40ANTS-DOC but we don't want
@@ -38,7 +38,7 @@
   )
 
 
-(defsection @index (:title "{{ name }}{{# description }} - {{ description }}{{/ description }}"
+(defsection @index (:title "{{name}}{{# description }} - {{ description }}{{/ description }}"
                     :ignore-words ("JSON"
                                    "HTTP"
                                    "TODO"
@@ -47,13 +47,13 @@
                                    {{/ license }}
                                    "REPL"
                                    "GIT"))
-  ({{ name }} system)
+  ({{name}} system)
   "
 {{# github }}
 [![](https://github-actions.40ants.com/{{ github-user }}/{{ github-repo }}/matrix.svg?only=ci.run-tests)]({{ github }}/actions)
 
 {{/ github }}
-![Quicklisp](http://quickdocs.org/badge/{{ name }}.svg)
+![Quicklisp](http://quickdocs.org/badge/{{name}}.svg)
 "
   (@installation section)
   (@usage section))
@@ -69,7 +69,7 @@ You can install this library from Quicklisp, but you want to receive updates qui
 ```
 (ql-dist:install-dist "http://dist.ultralisp.org/"
                       :prompt nil)
-(ql:quickload :{{ name }})
+(ql:quickload :{{name}})
 ```
 """)
 

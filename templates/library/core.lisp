@@ -1,10 +1,10 @@
-(uiop:define-package #:{{ name }}
+(uiop:define-package #:{{name}}
   (:use #:cl)
-  (:nicknames #:{{ name }}/core)
+  (:nicknames #:{{name}}/core)
   (:export #:hello
            #:make-hello
            #:say))
-(in-package #:{{ name }})
+(in-package #:{{name}})
 
 
 (defclass hello ()
