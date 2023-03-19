@@ -125,7 +125,7 @@ CL-USER> (40ants-project-templates:create-reblocks-app
           \"My experimental web application\")
 ```
 
-Optionally, you can give :REQUEST-ALL-OPTIONS-P T argument to force Mystic to ask about all template option including optional.
+Optionally, you can give `:REQUEST-ALL-OPTIONS-P T` argument to force Mystic to ask about all template option including optional.
 
 Also, you can use more generic MYSTIC:RENDER function and pass arguments as a list:
 
