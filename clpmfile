@@ -18,14 +18,15 @@
 
 ;; While my PR is not merged:
 ;; https://github.com/roswell/mystic/pull/4
-(:github "mystic"
- :path "svetlyak40wt/mystic"
- :branch "lispy-interface-for-opts")
+;; (:github "mystic"
+;;  :path "svetlyak40wt/mystic"
+;;  :branch "lispy-interface-for-opts")
 
 
 ;; To not fail when rendering templates with my settings:
 (:system "40ants-doc-theme-40ants")
 (:system "40ants-ci")
+(:system "docs-builder")
 
 (:system "ironclad")
 
