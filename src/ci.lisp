@@ -32,7 +32,7 @@
   :on-push-to "master"
   :by-cron "0 10 * * 1"
   :on-pull-request t
-  ;; :cache t
+  :cache t
   :jobs ((run-tests
           :asdf-system "40ants-project-templates"
           :lisp ("sbcl-bin"
