@@ -75,6 +75,7 @@
                                    "URL"
                                    "TODO"
                                    "Unlicense"
+                                   "MYSTIC:RENDER"
                                    "REPL"
                                    "GIT"))
   (40ants-project-templates system)
@@ -204,5 +205,4 @@ CL-USER> (mystic:render *
   (mystic.template.file:file-content (reader file))
   (mystic.template.file:file-path (reader file))
   (make-file function)
-  (ensure-template-docstring-has-options-description function)
-  (mystic:render function))
+  (ensure-template-docstring-has-options-description function))
