@@ -14,6 +14,8 @@
 
 
 (defmethod initialize-instance :after ((self ci-mixin) &rest args)
+  (declare (ignore args))
+  
   (setf (slot-value self 'files)
         (list*
          (make-file :40ants-project-templates
@@ -34,5 +36,8 @@
          (system-name (getf options :name))
          (ci-system-name (format nil "~A-ci" system-name)))
     ;; To create .github/workflows/*.yaml files we need to load the system
+    #+quicklisp
     (ql:quickload ci-system-name)
+    #-quicklisp
+    (asdf:load-system ci-system-name)
     (values-list results)))

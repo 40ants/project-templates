@@ -19,11 +19,13 @@
 
 
 (defmethod initialize-instance :after ((self docs-mixin) &rest args)
+  (declare (ignore args))
+  
   (setf (slot-value self 'mystic::options)
         (list*
          (make-option :doc-theme
                       "Documentation Theme"
-                      "A theme name in the form of the fully specified symbol name (as a string). Example: 40ants-doc-theme-40ants:40ants-theme")
+                      "A theme name in the form of the fully specified symbol name (as a string). Example: 40ants-doc-theme-40ants:40ants-theme.")
          (slot-value self 'mystic::options)))
   
   (setf (slot-value self 'files)
@@ -91,5 +93,5 @@
 
 
 (defmethod 40ants-project-templates/mixin/gitignore:patterns-to-ignore ((template docs-mixin))
-  (list* "docs/build/"
+  (list* "/docs/build/"
          (call-next-method)))

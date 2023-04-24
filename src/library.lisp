@@ -2,14 +2,13 @@
   (:use #:cl)
   (:import-from #:mystic
                 #:make-option)
-  (:import-from #:mystic.template.file
-                #:make-file)
   (:import-from #:40ants-project-templates/mixin/qlfile
                 #:qlfile-mixin)
   (:import-from #:40ants-project-templates/mixin/gitignore
                 #:gitignore-mixin)
   (:import-from #:mystic.template.file
-                #:file-mixin)
+                #:file-mixin
+                #:make-file)
   (:import-from #:40ants-project-templates/mixin/docs
                 #:docs-mixin)
   (:import-from #:40ants-project-templates/mixin/rove-tests
@@ -17,11 +16,19 @@
   (:import-from #:40ants-project-templates/mixin/ci
                 #:ci-mixin)
   (:import-from #:cl-ppcre
-                #:register-groups-bind))
+                #:register-groups-bind)
+  (:import-from #:40ants-project-templates/mixin/clpm
+                #:clpm-mixin)
+  (:import-from #:40ants-project-templates/utils
+                #:ensure-template-docstring-has-options-description)
+  (:export #:make-system-file
+           #:make-core-file
+           #:library-template))
 (in-package #:40ants-project-templates/library)
 
 
 (defclass library-template (qlfile-mixin
+                            clpm-mixin
                             docs-mixin
                             ci-mixin
                             rove-tests-mixin
@@ -55,19 +62,57 @@
                       :default "BSD")
          (make-option :description
                       "Description"
-                      "A short, one-line description of the project."))
-   :files (list
-           (make-file :40ants-project-templates
-                      "library/system.asd"
-                      "{{ name }}.asd")
-           (make-file :40ants-project-templates
-                      "library/core.lisp"
-                      "src/core.lisp")))
-  (:documentation "Mystic template to create a Common Lisp library with documentation, tests and continuous integration."))
+                      "A short, one-line description of the project.")))
+  (:documentation "Mystic template to create a Common Lisp library with documentation, tests and continuous integration.
 
+Use 40ANTS-PROJECT-TEMPLATES:CREATE-LIBRARY function to generate a skeleton for a new CL library.
+
+## Included mixins
+
+- QLFILE-MIXIN
+- CLPM-MIXIN
+- DOCS-MIXIN
+- CI-MIXIN
+- ROVE-TESTS-MIXIN
+- GITIGNORE-MIXIN
+
+"))
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (ensure-template-docstring-has-options-description 'library-template))
+
+
+(defgeneric make-system-file (template)
+  (:documentation "Should return a file object, which creates `{{ name }}.asd` file.")
+  (:method ((template library-template))
+    (make-file :40ants-project-templates
+               "library/system.asd"
+               "{{ name }}.asd")))
+
+
+(defgeneric make-core-file (template)
+  (:documentation "Should return a file object, which creates main lisp file.
+
+                   Use MAKE-FILE function to create a MYSTIC.TEMPLATE.FILE:FILE object.")
+  (:method ((template library-template))
+    (make-file :40ants-project-templates
+               "library/core.lisp"
+               "src/core.lisp")))
+
+
+(defmethod initialize-instance :around ((template library-template) &rest args)
+  (let ((new-args
+          (if (getf args :files)
+              args
+              (list* :files (list (make-system-file template)
+                                  (make-core-file template))
+                     args))))
+    (apply #'call-next-method template new-args)))
 
 
 (defmethod mystic:validate-options :around ((template library-template) (options list) &key request-all-options-p)
+  (declare (ignore request-all-options-p))
+  
   (let* ((result (call-next-method))
          (github-url (getf result :github)))
     (append (when github-url

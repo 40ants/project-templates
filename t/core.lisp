@@ -27,7 +27,8 @@
          (docs-system-name (format nil "~A-docs" lib-name)))
     (with-temp-path (lib-name tmp-path)
       (mystic:render (make-instance '40ants-project-templates/core:library-template)
-                     (list :name lib-name)
+                     (list :name lib-name
+                           :author "Alexander Artemenko")
                      tmp-path)
       ;; Now we need to create .git/HEAD to suppress a warning from 40ants-doc about it's inability
       ;; to get a GIT-VERSION
@@ -42,7 +43,7 @@
                             tmp-path)))
       (let* ((asdf:*central-registry* (cons tmp-path
                                             asdf:*central-registry*))
-             (resulting-path (progn (asdf:load-system docs-system-name :force t)
+             (resulting-path (progn (asdf:load-system docs-system-name)
                                     (docs-builder:build docs-system-name)))
              (index.html (merge-pathnames
                           (make-pathname :name "index"
@@ -74,7 +75,8 @@
          (tests-system-name (format nil "~A-tests" lib-name)))
     (with-temp-path (lib-name tmp-path)
       (mystic:render (make-instance '40ants-project-templates/core:library-template)
-                     (list :name lib-name)
+                     (list :name lib-name
+                           :author "Alexander Artemenko")
                      tmp-path)
       (ok (probe-file
            (merge-pathnames (format nil "~A.asd" lib-name)
@@ -82,6 +84,6 @@
       (let* ((asdf:*central-registry* (cons tmp-path
                                             asdf:*central-registry*))
              (rove:*default-reporter* :none))
-        (asdf:load-system tests-system-name :force t)
+        (asdf:load-system tests-system-name)
         
         (asdf:test-system lib-name)))))
