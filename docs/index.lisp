@@ -16,8 +16,10 @@
   (:import-from #:40ants-project-templates/core
                 #:create-reblocks-app
                 #:create-library
+                #:create-jsonrpc-app
                 #:reblocks-app-template
-                #:library-template)
+                #:library-template
+                #:jsonrpc-app-template)
   (:import-from #:40ants-project-templates/mixin/ci
                 #:ci-mixin)
   (:import-from #:40ants-project-templates/library
@@ -68,6 +70,7 @@
                                    "HTTP"
                                    "CL"
                                    "API"
+                                   "RPC"
                                    "CLI"
                                    "BSD"
                                    "MIT"
@@ -115,6 +118,7 @@ This library provides following template classes:
 
 - LIBRARY-TEMPLATE
 - REBLOCKS-APP-TEMPLATE
+- JSONRPC-APP-TEMPLATE
 
 To create new projects out of these templates, use functions CREATE-LIBRARY and CREATE-REBLOCKS-APP:
 
@@ -148,7 +152,8 @@ CL-USER> (mystic:render *
 
 (defsection @templates (:title "Templates")
   (@library section)
-  (@reblocks-app section))
+  (@reblocks-app section)
+  (@jsonrpc-app section))
 
 
 (defsection @library (:title "CL Library")
@@ -161,6 +166,11 @@ CL-USER> (mystic:render *
 (defsection @reblocks-app (:title "Reblocks Web App")
   (reblocks-app-template class)
   (create-reblocks-app function))
+
+
+(defsection @jsonrpc-app (:title "JSON-RPC API Server")
+  (jsonrpc-app-template class)
+  (create-jsonrpc-app function))
 
 
 (defsection @mixins (:title "Mixins")
