@@ -72,6 +72,9 @@
                                    "API"
                                    "RPC"
                                    "CLI"
+                                   "SLYNK"
+                                   "URI"
+                                   "JSON-RPC"
                                    "BSD"
                                    "MIT"
                                    "GPL"
@@ -80,7 +83,8 @@
                                    "Unlicense"
                                    "MYSTIC:RENDER"
                                    "REPL"
-                                   "GIT"))
+                                   "GIT")
+                    :external-docs ("https://40ants.com/openrpc/"))
   (40ants-project-templates system)
   "
 [![](https://github-actions.40ants.com/40ants/project-templates/matrix.svg?only=ci.run-tests)](https://github.com/40ants/project-templates/actions)

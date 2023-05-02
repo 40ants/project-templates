@@ -13,9 +13,15 @@
 
 (defclass jsonrpc-app-template (library-template)
   ()
-  (:documentation "This template creates a Reblocks web application with a few simple widgets.
+  (:documentation "This template creates a JSON-RPC API server.
 
                    Other behaviour is inherited from LIBRARY-TEMPLATE.
+                   This server will provide:
+
+                   - API methods created using OPENRPC-SERVER system.
+                   - OpenRPC specification at /openrpc.json URI.
+                   - Logging, configured to output data in JSON format.
+                   - Optional SLYNK server running on port given as `SLYNK_PORT` env variable.
 
                    Use 40ANTS-PROJECT-TEMPLATES:CREATE-JSONRPC-APP function to generate a skeleton
                    for a new web service."))
