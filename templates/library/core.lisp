@@ -3,7 +3,8 @@
   (:nicknames #:{{name}}/core)
   (:export #:hello
            #:make-hello
-           #:say))
+           #:say
+           #:user-name))
 (in-package #:{{name}})
 
 
