@@ -13,6 +13,8 @@
                 #:@changelog)
   (:import-from #:docs-config
                 #:docs-config)
+  (:import-from #:40ants-doc/autodoc
+                #:defautodoc)
   (:export #:@index
            #:@readme
            #:@changelog))
@@ -34,8 +36,7 @@
   (list :theme
         (find-symbol "{{ doc-theme-symbol }}"
                      (find-package "{{ doc-theme-package }}")))
-  {{/ doc-theme }}
-  )
+  {{/ doc-theme }})
 
 
 (defsection @index (:title "{{name}}{{# description }} - {{ description }}{{/ description }}"
@@ -46,6 +47,13 @@
                                    "{{ license }}"
                                    {{/ license }}
                                    "REPL"
+                                   "ASDF:PACKAGE-INFERRED-SYSTEM"
+                                   "ASDF"
+                                   "40A"
+                                   "API"
+                                   "URL"
+                                   "URI"
+                                   "RPC"
                                    "GIT"))
   ({{name}} system)
   "
@@ -56,7 +64,8 @@
 ![Quicklisp](http://quickdocs.org/badge/{{name}}.svg)
 "
   (@installation section)
-  (@usage section))
+  (@usage section)
+  (@api section))
 
 
 (defsection-copy @readme @index)
@@ -74,10 +83,10 @@ You can install this library from Quicklisp, but you want to receive updates qui
 """)
 
 
-(defsection @usage (:title "Usage"
-                    :ignore-words ("ASDF:PACKAGE-INFERRED-SYSTEM"
-                                   "ASDF"
-                                   "40A"))
+(defsection @usage (:title "Usage")
   "
 TODO: Write a library description. Put some examples here.
 ")
+
+
+(defautodoc @api (:system "{{name}}"))
