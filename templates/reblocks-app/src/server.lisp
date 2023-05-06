@@ -1,6 +1,5 @@
 (uiop:define-package #:{{name}}/server
   (:use #:cl)
-  (:import-from #:clack-handler-hunchentoot)
   (:import-from #:reblocks/server)
   (:import-from #:reblocks/debug)
   (:import-from #:reblocks/variables)

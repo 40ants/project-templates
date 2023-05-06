@@ -17,5 +17,9 @@
   :class :40ants-asdf-system
   :defsystem-depends-on ("40ants-asdf-system")
   :pathname "src"
-  :depends-on ("{{name}}/core")
+  :depends-on ("clack-handler-hunchentoot"
+               "{{name}}/core")
   :in-order-to ((test-op (test-op "{{name}}-tests"))))
+
+
+(register-system-packages "clack-handler-hunchentoot" '(#:clack.handler.hunchentoot))

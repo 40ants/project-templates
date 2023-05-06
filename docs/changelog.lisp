@@ -11,6 +11,9 @@
                               "API"
                               "JSON-RPC"
                               "HTTP"))
+  (0.3.0 2023-05-06
+         "* Add API section into the docs.
+          * Add dependency on `clack-handler-hunchentoot` system.")
   (0.2.0 2023-05-01
          "* Added a template for JSON-RPC API server.")
   (0.1.0 2023-02-05
