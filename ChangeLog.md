@@ -7,7 +7,6 @@
 ## 0.3.0 (2023-05-06)
 
 * Add `API` section into the docs.
-
 * Add dependency on `clack-handler-hunchentoot` system.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FCHANGELOG-3A-3A-7C0-2E2-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
