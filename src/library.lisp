@@ -86,7 +86,7 @@ Use 40ANTS-PROJECT-TEMPLATES:CREATE-LIBRARY function to generate a skeleton for 
   (:documentation "Should return a file object, which creates `{{ name }}.asd` file.")
   (:method ((template library-template))
     (make-file :40ants-project-templates
-               "library/system.asd"
+               "library/system.asd.template"
                "{{ name }}.asd")))
 
 

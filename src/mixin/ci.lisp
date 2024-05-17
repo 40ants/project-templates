@@ -19,7 +19,7 @@
   (setf (slot-value self 'files)
         (list*
          (make-file :40ants-project-templates
-                    "mixin/ci/system.asd"
+                    "mixin/ci/system.asd.template"
                     "{{ name }}-ci.asd")
          (make-file :40ants-project-templates
                     "mixin/ci/ci.lisp"

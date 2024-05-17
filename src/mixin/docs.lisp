@@ -37,7 +37,7 @@
                     "mixin/docs/empty.md"
                     "ChangeLog.md")
          (make-file :40ants-project-templates
-                    "mixin/docs/system.asd"
+                    "mixin/docs/system.asd.template"
                     "{{ name }}-docs.asd")
          (make-file :40ants-project-templates
                     "mixin/docs/index.lisp"

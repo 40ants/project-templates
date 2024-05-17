@@ -40,9 +40,7 @@
           "uses": "40ants/setup-lisp@qlot-no-deps-mode",
           "with": {
             "asdf-system": "40ants-project-templates",
-            "cache": "true",
-            "qlot-no-deps": "true"
-            
+            "cache": "true"
           }
         },
         {
