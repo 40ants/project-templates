@@ -11,6 +11,8 @@
                               "API"
                               "JSON-RPC"
                               "HTTP"))
+  (0.4.0 2024-05-18
+         "* Update dependencies. Renamed asd files to prevent qlot from trying to process dependencies from these files.")
   (0.3.0 2023-05-06
          "* Add API section into the docs.
           * Add dependency on `clack-handler-hunchentoot` system.")
