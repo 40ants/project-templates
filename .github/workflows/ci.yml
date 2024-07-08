@@ -39,7 +39,8 @@
           "name": "Setup Common Lisp Environment",
           "uses": "40ants/setup-lisp@v4",
           "with": {
-            "asdf-system": "40ants-project-templates"
+            "asdf-system": "40ants-project-templates",
+            "cache": "true"
           }
         },
         {
