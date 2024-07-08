@@ -2,6 +2,12 @@
 
 # ChangeLog
 
+<a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FCHANGELOG-3A-3A-7C0-2E4-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
+
+## 0.4.0 (2024-05-18)
+
+* Update dependencies. Renamed asd files to prevent qlot from trying to process dependencies from these files.
+
 <a id="x-2840ANTS-PROJECT-TEMPLATES-DOCS-2FCHANGELOG-3A-3A-7C0-2E3-2E0-7C-2040ANTS-DOC-2FLOCATIVES-3ASECTION-29"></a>
 
 ## 0.3.0 (2023-05-06)
