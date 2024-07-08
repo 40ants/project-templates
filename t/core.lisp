@@ -4,22 +4,26 @@
   (:import-from #:rove
                 #:deftest
                 #:ok)
-  (:import-from #:docs-builder))
+  (:import-from #:docs-builder)
+  (:import-from #:alexandria
+                #:once-only
+                #:with-gensyms))
 (in-package #:40ants-project-templates-tests/core)
 
 
 (defmacro with-temp-path ((lib-name tmp-path-var) &body body)
-  (alexandria:once-only (lib-name)
-    `(let ((,tmp-path-var (uiop:ensure-directory-pathname
-                           (uiop:tmpize-pathname
-                            (make-pathname :name ,lib-name
-                                           :directory '(:absolute "tmp"))))))
-       (uiop:delete-file-if-exists ,tmp-path-var)
-       
-       (unwind-protect
-            (progn ,@body)
-         (when (probe-file ,tmp-path-var)
-           (uiop:delete-directory-tree ,tmp-path-var :validate t))))))
+  (with-gensyms (temp-file)
+    (once-only (lib-name)
+      `(let* ((,temp-file (uiop:tmpize-pathname
+                           (make-pathname :name ,lib-name
+                                          :directory '(:absolute "tmp"))))
+              (,tmp-path-var (uiop:ensure-directory-pathname ,temp-file)))
+         (uiop:delete-file-if-exists ,temp-file)
+        
+         (unwind-protect
+              (progn ,@body)
+           (when (probe-file ,tmp-path-var)
+             (uiop:delete-directory-tree ,tmp-path-var :validate t)))))))
 
 
 (deftest test-a-library-has-docs
@@ -44,7 +48,16 @@
       (let* ((asdf:*central-registry* (cons tmp-path
                                             asdf:*central-registry*))
              (resulting-path (progn (asdf:load-system docs-system-name)
-                                    (docs-builder:build docs-system-name)))
+                                    (handler-bind ((docs-builder:documentation-has-problems
+                                                     ;; Here we ignore documentation warnings
+                                                     ;; because on CCL we have some problems with them:
+                                                     #+ccl
+                                                     #'continue
+                                                     ;; But for other implementations
+                                                     ;; will require for no warnings:
+                                                     #-ccl
+                                                     #'identity))
+                                      (docs-builder:build docs-system-name))))
              (index.html (merge-pathnames
                           (make-pathname :name "index"
                                          :type "html")

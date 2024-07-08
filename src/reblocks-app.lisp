@@ -35,7 +35,7 @@
                                        (make-pathname :directory '(:relative
                                                                    "templates"
                                                                    "reblocks-app"))
-                                       :renames '(("system.asd" . "{{ name }}.asd")))
+                                       :renames '(("system.asd.template" . "{{ name }}.asd")))
                      args))))
     (apply #'call-next-method template new-args)))
 

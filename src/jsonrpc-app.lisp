@@ -40,7 +40,7 @@
                                        (make-pathname :directory '(:relative
                                                                    "templates"
                                                                    "jsonrpc-app"))
-                                       :renames '(("system.asd" . "{{ name }}.asd")
+                                       :renames '(("system.asd.template" . "{{ name }}.asd")
                                                   ("roswell/app.ros" . "roswell/{{ name }}.ros")))
                      args))))
     (apply #'call-next-method template new-args)))

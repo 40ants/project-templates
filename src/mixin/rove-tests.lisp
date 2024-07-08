@@ -19,7 +19,7 @@
   (setf (slot-value self 'files)
         (list*
          (make-file :40ants-project-templates
-                    "mixin/rove-tests/system.asd"
+                    "mixin/rove-tests/system.asd.template"
                     "{{ name }}-tests.asd")
          (make-file :40ants-project-templates
                     "mixin/rove-tests/core.lisp"
