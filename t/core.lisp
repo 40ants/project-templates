@@ -48,7 +48,16 @@
       (let* ((asdf:*central-registry* (cons tmp-path
                                             asdf:*central-registry*))
              (resulting-path (progn (asdf:load-system docs-system-name)
-                                    (docs-builder:build docs-system-name)))
+                                    (handler-bind ((docs-builder:documentation-has-problems
+                                                     ;; Here we ignore documentation warnings
+                                                     ;; because on CCL we have some problems with them:
+                                                     #+ccl
+                                                     #'continue
+                                                     ;; But for other implementations
+                                                     ;; will require for no warnings:
+                                                     #-ccl
+                                                     #'identity))
+                                      (docs-builder:build docs-system-name))))
              (index.html (merge-pathnames
                           (make-pathname :name "index"
                                          :type "html")
