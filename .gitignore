@@ -5,3 +5,5 @@
 /.qlot/
 /docs/build/
 >>>>>>> 5446e31b90f6a9fb5d6cd555abdf407882301113
+.DS_Store
+*.fasl

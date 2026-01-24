@@ -3,6 +3,7 @@
   (:import-from #:40ants-project-templates/library
                 #:library-template)
   (:import-from #:40ants-project-templates/utils
+                #:merge-mystic-files
                 #:ensure-template-docstring-has-options-description
                 #:make-mystic-tree)
   (:import-from #:40ants-project-templates/mixin/qlfile
@@ -28,15 +29,15 @@
 
 (defmethod initialize-instance :around ((template reblocks-app-template) &rest args)
   (let ((new-args
-          (if (getf args :files)
-              args
-              (list* :files
-                     (make-mystic-tree "40ants-project-templates"
-                                       (make-pathname :directory '(:relative
-                                                                   "templates"
-                                                                   "reblocks-app"))
-                                       :renames '(("system.asd.template" . "{{ name }}.asd")))
-                     args))))
+          (list* :files
+                 (merge-mystic-files
+                  (append (getf args :files)
+                          (make-mystic-tree "40ants-project-templates"
+                                            (make-pathname :directory '(:relative
+                                                                        "templates"
+                                                                        "reblocks-app"))
+                                            :renames '(("system.asd.template" . "{{ name }}.asd")))))
+                args)))
     (apply #'call-next-method template new-args)))
 
 

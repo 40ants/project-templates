@@ -1,8 +1,9 @@
 (uiop:define-package #:40ants-project-templates/jsonrpc-app
   (:use #:cl)
-  (:import-from #:40ants-project-templates/library
-                #:library-template)
+  (:import-from #:40ants-project-templates/cli-app
+                #:cli-app-template)
   (:import-from #:40ants-project-templates/utils
+                #:merge-mystic-files
                 #:ensure-template-docstring-has-options-description
                 #:make-mystic-tree)
   (:import-from #:40ants-project-templates/mixin/qlfile
@@ -11,11 +12,11 @@
 (in-package #:40ants-project-templates/jsonrpc-app)
 
 
-(defclass jsonrpc-app-template (library-template)
+(defclass jsonrpc-app-template (cli-app-template)
   ()
   (:documentation "This template creates a JSON-RPC API server.
 
-                   Other behaviour is inherited from LIBRARY-TEMPLATE.
+                   Other behaviour is inherited from CLI-APP-TEMPLATE.
                    This server will provide:
 
                    - API methods created using OPENRPC-SERVER system.
@@ -33,16 +34,15 @@
 
 (defmethod initialize-instance :around ((template jsonrpc-app-template) &rest args)
   (let ((new-args
-          (if (getf args :files)
-              args
-              (list* :files
-                     (make-mystic-tree "40ants-project-templates"
-                                       (make-pathname :directory '(:relative
-                                                                   "templates"
-                                                                   "jsonrpc-app"))
-                                       :renames '(("system.asd.template" . "{{ name }}.asd")
-                                                  ("roswell/app.ros" . "roswell/{{ name }}.ros")))
-                     args))))
+          (list* :files
+                 (merge-mystic-files
+                  (append (getf args :files)
+                          (make-mystic-tree "40ants-project-templates"
+                                            (make-pathname :directory '(:relative
+                                                                        "templates"
+                                                                        "jsonrpc-app"))
+                                            :renames '(("system.asd.template" . "{{ name }}.asd")))))
+                 args)))
     (apply #'call-next-method template new-args)))
 
 

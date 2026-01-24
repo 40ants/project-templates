@@ -10,7 +10,11 @@
                               "REPL"
                               "API"
                               "JSON-RPC"
-                              "HTTP"))
+                              "HTTP"
+                              "CLI"))
+  (0.5.0 2024-12-01
+         "* Added a generic CLI-APP-TEMPLATE for creating command-line applications.
+          * Refactored JSONRPC-APP-TEMPLATE to inherit from CLI-APP-TEMPLATE, extracting common CLI functionality.")
   (0.4.0 2024-05-18
          "* Update dependencies. Renamed asd files to prevent qlot from trying to process dependencies from these files.")
   (0.3.0 2023-05-06

@@ -20,6 +20,7 @@
   (:import-from #:40ants-project-templates/mixin/clpm
                 #:clpm-mixin)
   (:import-from #:40ants-project-templates/utils
+                #:merge-mystic-files
                 #:ensure-template-docstring-has-options-description)
   (:export #:make-system-file
            #:make-core-file
@@ -102,11 +103,12 @@ Use 40ANTS-PROJECT-TEMPLATES:CREATE-LIBRARY function to generate a skeleton for 
 
 (defmethod initialize-instance :around ((template library-template) &rest args)
   (let ((new-args
-          (if (getf args :files)
-              args
-              (list* :files (list (make-system-file template)
-                                  (make-core-file template))
-                     args))))
+          (list* :files
+                 (merge-mystic-files
+                  (append (getf args :files)
+                          (list (make-system-file template)
+                                (make-core-file template))))
+                 args)))
     (apply #'call-next-method template new-args)))
 
 
