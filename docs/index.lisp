@@ -16,9 +16,11 @@
   (:import-from #:40ants-project-templates/core
                 #:create-reblocks-app
                 #:create-library
+                #:create-cli-app
                 #:create-jsonrpc-app
                 #:reblocks-app-template
                 #:library-template
+                #:cli-app-template
                 #:jsonrpc-app-template)
   (:import-from #:40ants-project-templates/mixin/ci
                 #:ci-mixin)
@@ -84,7 +86,8 @@
                                    "MYSTIC:RENDER"
                                    "REPL"
                                    "GIT")
-                    :external-docs ("https://40ants.com/openrpc/"))
+                    :external-docs ("https://40ants.com/openrpc/"
+                                    "https://40ants.com/defmain/"))
   (40ants-project-templates system)
   "
 [![](https://github-actions.40ants.com/40ants/project-templates/matrix.svg?only=ci.run-tests)](https://github.com/40ants/project-templates/actions)
@@ -121,10 +124,11 @@ You can install this library from Quicklisp, but you want to receive updates qui
 This library provides following template classes:
 
 - LIBRARY-TEMPLATE
+- CLI-APP-TEMPLATE
 - REBLOCKS-APP-TEMPLATE
 - JSONRPC-APP-TEMPLATE
 
-To create new projects out of these templates, use functions CREATE-LIBRARY and CREATE-REBLOCKS-APP:
+To create new projects out of these templates, use functions CREATE-LIBRARY, CREATE-CLI-APP, CREATE-REBLOCKS-APP, and CREATE-JSONRPC-APP:
 
 ```
 CL-USER> (40ants-project-templates:create-reblocks-app
@@ -140,6 +144,7 @@ Also, you can use more generic MYSTIC:RENDER function and pass arguments as a li
 ```
 CL-USER> (mystic:list-templates)
 (#<40ANTS-PROJECT-TEMPLATES/REBLOCKS-APP:REBLOCKS-APP-TEMPLATE {7010EACC03}>
+ #<40ANTS-PROJECT-TEMPLATES/CLI-APP:CLI-APP-TEMPLATE {7010EACC13}>
  #<40ANTS-PROJECT-TEMPLATES/LIBRARY:LIBRARY-TEMPLATE {7010EACC23}>)
 
 CL-USER> (first *)
@@ -156,6 +161,7 @@ CL-USER> (mystic:render *
 
 (defsection @templates (:title "Templates")
   (@library section)
+  (@cli-app section)
   (@reblocks-app section)
   (@jsonrpc-app section))
 
@@ -165,6 +171,11 @@ CL-USER> (mystic:render *
   (create-library function)
   (make-core-file generic-function)
   (make-system-file generic-function))
+
+
+(defsection @cli-app (:title "CLI Application")
+  (cli-app-template class)
+  (create-cli-app function))
 
 
 (defsection @reblocks-app (:title "Reblocks Web App")

@@ -6,6 +6,10 @@
                 #:file)
   (:import-from #:str
                 #:split)
+  (:import-from #:serapeum
+                #:dict
+                #:soft-list-of
+                #:->)
   (:export
    #:ensure-template-docstring-has-options-description))
 (in-package #:40ants-project-templates/utils)
@@ -49,6 +53,22 @@
         collect (make-instance 'file
                                :path (ensure-string output-path-template)
                                :content (uiop:read-file-string path))))
+
+
+(-> merge-mystic-files ((soft-list-of file))
+    (values (soft-list-of file) &optional))
+
+(defun merge-mystic-files (files)
+  "Returns a new list of files while deduplicating them by path.
+
+   For files having the same path first one has a highest priority."
+  (loop with seen-paths = (dict)
+        for file in files
+        for path = (mystic.template.file:file-path file)
+        unless (gethash path seen-paths)
+          do (setf (gethash path seen-paths)
+                   t)
+          and collect file))
 
 
 

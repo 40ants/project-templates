@@ -9,8 +9,13 @@
                               "ASDF"
                               "REPL"
                               "API"
+                              "CLI"
                               "JSON-RPC"
-                              "HTTP"))
+                              "HTTP"
+                              "CLI"))
+  (0.5.0 2024-12-01
+         "* Added a generic 40ANTS-PROJECT-TEMPLATES/CLI-APP:CLI-APP-TEMPLATE for creating command-line applications.
+          * Refactored 40ANTS-PROJECT-TEMPLATES/JSONRPC-APP:JSONRPC-APP-TEMPLATE to inherit from 40ANTS-PROJECT-TEMPLATES/CLI-APP:CLI-APP-TEMPLATE, extracting common CLI functionality.")
   (0.4.0 2024-05-18
          "* Update dependencies. Renamed asd files to prevent qlot from trying to process dependencies from these files.")
   (0.3.0 2023-05-06
