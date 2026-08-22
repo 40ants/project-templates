@@ -76,7 +76,7 @@ CL-USER> (mystic:render *
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3ALIBRARY-TEMPLATE-20CLASS-29"></a>
 
-#### [class](8a27) `40ants-project-templates/library:library-template` (qlfile-mixin clpm-mixin docs-mixin ci-mixin rove-tests-mixin gitignore-mixin file-mixin)
+#### [class](723b) `40ants-project-templates/library:library-template` (qlfile-mixin clpm-mixin docs-mixin ci-mixin rove-tests-mixin gitignore-mixin file-mixin)
 
 Mystic template to create a Common Lisp library with documentation, tests and continuous integration.
 
@@ -108,7 +108,7 @@ Use [`40ants-project-templates:create-library`][560f] function to generate a ske
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-3ACREATE-LIBRARY-20FUNCTION-29"></a>
 
-#### [function](ea44) `40ants-project-templates:create-library` directory-path name description &key request-all-options
+#### [function](a541) `40ants-project-templates:create-library` directory-path name description &key request-all-options
 
 Creates Common Lisp library in the specified directory.
 
@@ -117,7 +117,7 @@ call to `MYSTIC:RENDER` function to pass any options you like as a list.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3AMAKE-CORE-FILE-20GENERIC-FUNCTION-29"></a>
 
-#### [generic-function](4dc5) `40ants-project-templates/library:make-core-file` template
+#### [generic-function](fe17) `40ants-project-templates/library:make-core-file` template
 
 Should return a file object, which creates main lisp file.
 
@@ -125,7 +125,7 @@ Use [`make-file`][659a] function to create a [`mystic.template.file:file`][a919]
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FLIBRARY-3AMAKE-SYSTEM-FILE-20GENERIC-FUNCTION-29"></a>
 
-#### [generic-function](d002) `40ants-project-templates/library:make-system-file` template
+#### [generic-function](82ff) `40ants-project-templates/library:make-system-file` template
 
 Should return a file object, which creates `{{ name }}.asd` file.
 
@@ -135,7 +135,7 @@ Should return a file object, which creates `{{ name }}.asd` file.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FCLI-APP-3ACLI-APP-TEMPLATE-20CLASS-29"></a>
 
-#### [class](f2c0) `40ants-project-templates/cli-app:cli-app-template` (library-template)
+#### [class](eb01) `40ants-project-templates/cli-app:cli-app-template` (library-template)
 
 This template creates a generic `CLI` application.
 
@@ -164,7 +164,7 @@ for a new `CLI` application.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-3ACREATE-CLI-APP-20FUNCTION-29"></a>
 
-#### [function](ac30) `40ants-project-templates:create-cli-app` directory-path name description &key request-all-options
+#### [function](c53c) `40ants-project-templates:create-cli-app` directory-path name description &key request-all-options
 
 Creates Common Lisp `CLI` application in the specified directory.
 
@@ -177,7 +177,7 @@ call to `MYSTIC:RENDER` function to pass any options you like as a list.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FREBLOCKS-APP-3AREBLOCKS-APP-TEMPLATE-20CLASS-29"></a>
 
-#### [class](3a53) `40ants-project-templates/reblocks-app:reblocks-app-template` (library-template)
+#### [class](b8dc) `40ants-project-templates/reblocks-app:reblocks-app-template` (library-template)
 
 This template creates a Reblocks web application with a few simple widgets.
 
@@ -201,7 +201,7 @@ for a new web service.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-3ACREATE-REBLOCKS-APP-20FUNCTION-29"></a>
 
-#### [function](4d14) `40ants-project-templates:create-reblocks-app` directory-path name description &key request-all-options
+#### [function](42f9) `40ants-project-templates:create-reblocks-app` directory-path name description &key request-all-options
 
 Creates Common Lisp web application in the specified directory.
 
@@ -214,7 +214,7 @@ call to `MYSTIC:RENDER` function to pass any options you like as a list.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FJSONRPC-APP-3AJSONRPC-APP-TEMPLATE-20CLASS-29"></a>
 
-#### [class](73ad) `40ants-project-templates/jsonrpc-app:jsonrpc-app-template` (cli-app-template)
+#### [class](9d10) `40ants-project-templates/jsonrpc-app:jsonrpc-app-template` (cli-app-template)
 
 This template creates a `JSON-RPC` `API` server.
 
@@ -244,7 +244,7 @@ for a new web service.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-3ACREATE-JSONRPC-APP-20FUNCTION-29"></a>
 
-#### [function](14ce) `40ants-project-templates:create-jsonrpc-app` directory-path name description &key request-all-options
+#### [function](1a74) `40ants-project-templates:create-jsonrpc-app` directory-path name description &key request-all-options
 
 Creates Common Lisp `RPC` `API` application in the specified directory.
 
@@ -261,7 +261,7 @@ call to `MYSTIC:RENDER` function to pass any options you like as a list.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FCI-3ACI-MIXIN-20CLASS-29"></a>
 
-#### [class](823a) `40ants-project-templates/mixin/ci:ci-mixin` (file-mixin)
+#### [class](51e7) `40ants-project-templates/mixin/ci:ci-mixin` (file-mixin)
 
 Adds docs based on 40ants-docs.
 
@@ -271,7 +271,7 @@ Adds docs based on 40ants-docs.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FCLPM-3ACLPM-MIXIN-20CLASS-29"></a>
 
-#### [class](dcf8) `40ants-project-templates/mixin/clpm:clpm-mixin` (file-mixin)
+#### [class](11ee) `40ants-project-templates/mixin/clpm:clpm-mixin` (file-mixin)
 
 Adds clpmfile into the root of the project.
 
@@ -281,7 +281,7 @@ Adds clpmfile into the root of the project.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FDOCS-3ADOCS-MIXIN-20CLASS-29"></a>
 
-#### [class](7191) `40ants-project-templates/mixin/docs:docs-mixin` (file-mixin)
+#### [class](7b81) `40ants-project-templates/mixin/docs:docs-mixin` (file-mixin)
 
 Adds docs based on 40ants-docs.
 
@@ -291,19 +291,19 @@ Adds docs based on 40ants-docs.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FGITIGNORE-3AGITIGNORE-MIXIN-20CLASS-29"></a>
 
-#### [class](b784) `40ants-project-templates/mixin/gitignore:gitignore-mixin` ()
+#### [class](566e) `40ants-project-templates/mixin/gitignore:gitignore-mixin` ()
 
 Adds .gitignore into the root of the project.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FGITIGNORE-3A-2APATTERNS-2A-20-28VARIABLE-29-29"></a>
 
-#### [variable](9d35) `40ants-project-templates/mixin/gitignore:*patterns*` ("*~" ".#*" "*.fasl" ".*.~undo-tree~")
+#### [variable](c823) `40ants-project-templates/mixin/gitignore:*patterns*` ("*~" ".#*" "*.fasl" ".*.~undo-tree~")
 
 Default list of patterns which returned by [`patterns-to-ignore`][fcc9] generic function.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FGITIGNORE-3APATTERNS-TO-IGNORE-20GENERIC-FUNCTION-29"></a>
 
-#### [generic-function](90be) `40ants-project-templates/mixin/gitignore:patterns-to-ignore` template
+#### [generic-function](6b32) `40ants-project-templates/mixin/gitignore:patterns-to-ignore` template
 
 Should return a list of patterns to add to .gitignore. Default method takes them from [`*patterns*`][0c07] variable.
 
@@ -313,13 +313,13 @@ Should return a list of patterns to add to .gitignore. Default method takes them
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FQLFILE-3AQLFILE-MIXIN-20CLASS-29"></a>
 
-#### [class](38e9) `40ants-project-templates/mixin/qlfile:qlfile-mixin` (file-mixin)
+#### [class](2e03) `40ants-project-templates/mixin/qlfile:qlfile-mixin` (file-mixin)
 
 Adds qlfile into the root of the project.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FQLFILE-3AQLFILE-PIECES-20GENERIC-FUNCTION-29"></a>
 
-#### [generic-function](5ab6) `40ants-project-templates/mixin/qlfile:qlfile-pieces` template
+#### [generic-function](d9bf) `40ants-project-templates/mixin/qlfile:qlfile-pieces` template
 
 Returns a list of strings which will be concatentated to build a qlfile.
 
@@ -329,7 +329,7 @@ Returns a list of strings which will be concatentated to build a qlfile.
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FMIXIN-2FROVE-TESTS-3AROVE-TESTS-MIXIN-20CLASS-29"></a>
 
-#### [class](08ed) `40ants-project-templates/mixin/rove-tests:rove-tests-mixin` (file-mixin)
+#### [class](4a6c) `40ants-project-templates/mixin/rove-tests:rove-tests-mixin` (file-mixin)
 
 Adds tests based on Rove.
 
@@ -339,36 +339,36 @@ Adds tests based on Rove.
 
 <a id="x-28MYSTIC-2ETEMPLATE-2EFILE-3AFILE-MIXIN-20CLASS-29"></a>
 
-### [class](9a3a) `mystic.template.file:file-mixin` (template)
+### [class](bfa1) `mystic.template.file:file-mixin` (template)
 
 A Mystic template mixin for rendering a list of files using Mustache.
 
 <a id="x-28MYSTIC-2ETEMPLATE-2EFILE-3AFILE-20CLASS-29"></a>
 
-### [class](fa56) `mystic.template.file:file` ()
+### [class](8f2f) `mystic.template.file:file` ()
 
 A file.
 
 <a id="x-28MYSTIC-2ETEMPLATE-2EFILE-3AFILE-CONTENT-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20MYSTIC-2ETEMPLATE-2EFILE-3AFILE-29-29"></a>
 
-### [reader](2733) `mystic.template.file:file-content` (file) (:content)
+### [reader](4937) `mystic.template.file:file-content` (file) (:content)
 
 The file's contents, a Mustache template string.
 
 <a id="x-28MYSTIC-2ETEMPLATE-2EFILE-3AFILE-PATH-20-2840ANTS-DOC-2FLOCATIVES-3AREADER-20MYSTIC-2ETEMPLATE-2EFILE-3AFILE-29-29"></a>
 
-### [reader](843a) `mystic.template.file:file-path` (file) (:path)
+### [reader](8410) `mystic.template.file:file-path` (file) (:path)
 
 The path to the file relative to the directory,
 a Mustache template string.
 
 <a id="x-28MYSTIC-2ETEMPLATE-2EFILE-3AMAKE-FILE-20FUNCTION-29"></a>
 
-### [function](d396) `mystic.template.file:make-file` system-name path output-path-template
+### [function](a3cd) `mystic.template.file:make-file` system-name path output-path-template
 
 <a id="x-2840ANTS-PROJECT-TEMPLATES-2FUTILS-3AENSURE-TEMPLATE-DOCSTRING-HAS-OPTIONS-DESCRIPTION-20FUNCTION-29"></a>
 
-### [function](13a7) `40ants-project-templates/utils:ensure-template-docstring-has-options-description` CLASS-NAME &KEY (TITLE "## Options")
+### [function](7e8b) `40ants-project-templates/utils:ensure-template-docstring-has-options-description` CLASS-NAME &KEY (TITLE "## Options")
 
 Appends options description to the documentation string of a given template class.
 
@@ -403,31 +403,31 @@ template class docstrings.
 [659a]: https://40ants.com/project-templates/#x-28MYSTIC-2ETEMPLATE-2EFILE-3AMAKE-FILE-20FUNCTION-29
 [41d7]: https://github.com/40ants/project-templates
 [ca1d]: https://github.com/40ants/project-templates/actions
-[fa56]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L18
-[843a]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L19
-[2733]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L24
-[9a3a]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L30
-[d396]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L49
-[f2c0]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/cli-app.lisp#L16
-[ea44]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/core.lisp#L29
-[ac30]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/core.lisp#L45
-[4d14]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/core.lisp#L61
-[14ce]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/core.lisp#L77
-[73ad]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/jsonrpc-app.lisp#L15
-[8a27]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/library.lisp#L31
-[d002]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/library.lisp#L86
-[4dc5]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/library.lisp#L94
-[823a]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/ci.lisp#L11
-[dcf8]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/clpm.lisp#L11
-[7191]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/docs.lisp#L16
-[b784]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/gitignore.lisp#L13
-[9d35]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/gitignore.lisp#L18
-[90be]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/gitignore.lisp#L26
-[38e9]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/qlfile.lisp#L25
-[5ab6]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/qlfile.lisp#L30
-[08ed]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/mixin/rove-tests.lisp#L11
-[3a53]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/reblocks-app.lisp#L16
-[13a7]: https://github.com/40ants/project-templates/blob/14e58916d8718a02d90ee77156a6da11ed96f475/src/utils.lisp#L111
+[8f2f]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L18
+[8410]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L19
+[4937]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L24
+[bfa1]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L30
+[a3cd]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/.qlot/dists/ultralisp/software/roswell-mystic-20230314045148/templates/mixins/file/file.lisp#L49
+[eb01]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/cli-app.lisp#L16
+[a541]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/core.lisp#L29
+[c53c]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/core.lisp#L45
+[42f9]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/core.lisp#L61
+[1a74]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/core.lisp#L77
+[9d10]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/jsonrpc-app.lisp#L15
+[723b]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/library.lisp#L31
+[82ff]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/library.lisp#L86
+[fe17]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/library.lisp#L94
+[51e7]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/ci.lisp#L11
+[11ee]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/clpm.lisp#L11
+[7b81]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/docs.lisp#L16
+[566e]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/gitignore.lisp#L13
+[c823]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/gitignore.lisp#L18
+[6b32]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/gitignore.lisp#L26
+[2e03]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/qlfile.lisp#L25
+[d9bf]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/qlfile.lisp#L30
+[4a6c]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/mixin/rove-tests.lisp#L11
+[b8dc]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/reblocks-app.lisp#L16
+[7e8b]: https://github.com/40ants/project-templates/blob/089be2cb8e9563f67c9a93dd25b88c9a48d415e4/src/utils.lisp#L111
 [8fc2]: https://github.com/40ants/project-templates/issues
 [8236]: https://quickdocs.org/alexandria
 [49b9]: https://quickdocs.org/cl-ppcre
